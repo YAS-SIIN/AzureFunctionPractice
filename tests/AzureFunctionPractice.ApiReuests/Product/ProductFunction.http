@@ -5,4 +5,4 @@ GET  {{hostname}}/api/ProductFunction
 # @name PostProducts
 POST  {{hostname}}/api/ProductFunction
 
-{ "Name": "testProduct", "Price": 1500, "Description": "testProduct" }
+{ "Name": "Test", "Price": 1500, "Description": "testProduct" }

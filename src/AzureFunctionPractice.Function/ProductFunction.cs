@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
+using FluentValidation;
+using System.ComponentModel.DataAnnotations;
 
 namespace AzureFunctionPractice
 {
@@ -13,11 +15,13 @@ namespace AzureFunctionPractice
     {
         private readonly ILogger<ProductFunction> _logger;
         private readonly IProductService _productService;
+        private readonly IValidator<ProductInputDto> _validator;
 
-        public ProductFunction(ILogger<ProductFunction> logger, IProductService productService)
+        public ProductFunction(ILogger<ProductFunction> logger, IProductService productService, IValidator<ProductInputDto> validator)
         {
             _logger = logger;
             _productService = productService;
+            _validator = validator;
         }
 
         [Function("ProductFunction")]
@@ -36,8 +40,22 @@ namespace AzureFunctionPractice
                 var productInput = JsonSerializer.Deserialize<ProductInputDto>(content);
                 if (productInput is ProductInputDto)
                 {
+                    var productValidationResult = await _validator.ValidateAsync(productInput);
+
+                    if (!productValidationResult.IsValid)
+                    {
+                        return new BadRequestObjectResult(productValidationResult.Errors.Select(e => new
+                        {
+                            e.ErrorCode,
+                            e.PropertyName,
+                            e.ErrorMessage
+                        }));
+                    }
                     var res = await _productService.AddProductsAsync(productInput, cancellationToken);
                     return new OkObjectResult(res); 
+                } else
+                {
+                    return new BadRequestObjectResult("Json format is wrong!");
                 }
             }
             return new OkObjectResult(null);
