@@ -20,10 +20,10 @@ namespace AzureFunctionPractice
         }
 
         [Function("GetProducts")]
-        public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequest req)
+        public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequest req, CancellationToken cancellationToken)
         { 
             _logger.LogInformation("C# HTTP trigger function processed a request.");
-            var res = await _productService.GetProductsAsync();
+            var res = await _productService.GetProductsAsync(cancellationToken);
             return new OkObjectResult(res);
         }
 

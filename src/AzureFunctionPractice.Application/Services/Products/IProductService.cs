@@ -7,5 +7,5 @@ namespace AzureFunctionPractice.Application.Services.Products;
 
 public interface IProductService
 {
-    Task<List<ProductOutputDto>> GetProductsAsync();
+    Task<List<ProductOutputDto>> GetProductsAsync(CancellationToken cancellationToken = default);
 }

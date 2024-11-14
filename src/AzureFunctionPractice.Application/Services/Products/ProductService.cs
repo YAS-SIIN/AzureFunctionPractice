@@ -16,7 +16,7 @@ public class ProductService : IProductService
         _appDBContext = appDBContext;
     }
 
-    public async Task<List<ProductOutputDto>> GetProductsAsync()
+    public async Task<List<ProductOutputDto>> GetProductsAsync(CancellationToken cancellationToken = default)
     {
         var res = await _appDBContext.Products.Select(a=> new ProductOutputDto
         {
@@ -24,7 +24,7 @@ public class ProductService : IProductService
             Id = a.Id,
             Name = a.Name,
             Price = a.Price,
-        }).ToListAsync();
+        }).ToListAsync(cancellationToken);
         return res;
     }
 }
