@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using AzureFunctionPractice.Domain.DBContext;
 using AzureFunctionPractice.Application.Services.Products;
+using Google.Protobuf.WellKnownTypes;
+using Mc2.CrudTest.Presentation.Server;
 
 var builder = FunctionsApplication.CreateBuilder(args);
 
@@ -17,5 +19,14 @@ builder.Services.AddDbContext<AppDBContext>(options => options.UseInMemoryDataba
 builder.Services.AddScoped<IProductService, ProductService>();
 
 
+var app = builder.Build();
 
-builder.Build().Run();
+// Initializing new data
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    DataGenerator.SeedData(services);
+}
+
+app.Run();
+
