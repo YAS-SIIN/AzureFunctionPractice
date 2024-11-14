@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctionPractice.Domai
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunctionPractice.Application", "src\AzureFunctionPractice.Application\AzureFunctionPractice.Application.csproj", "{3E0F4DB6-71A4-474F-A71A-1626B478184F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunctionPractice.UnitTest", "src\AzureFunctionPractice.UnitTest\AzureFunctionPractice.UnitTest.csproj", "{82663538-860C-4E90-B30B-26C4D9E8812F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunctionPractice.UnitTest", "tests\AzureFunctionPractice.UnitTest\AzureFunctionPractice.UnitTest.csproj", "{82663538-860C-4E90-B30B-26C4D9E8812F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
