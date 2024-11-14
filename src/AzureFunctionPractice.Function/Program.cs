@@ -3,6 +3,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using AzureFunctionPractice.Domain.DBContext;
+using AzureFunctionPractice.Application.Services.Products;
 
 var builder = FunctionsApplication.CreateBuilder(args);
 
@@ -13,6 +14,7 @@ builder.ConfigureFunctionsWebApplication();
 //     .AddApplicationInsightsTelemetryWorkerService()
 //     .ConfigureFunctionsApplicationInsights();
 builder.Services.AddDbContext<AppDBContext>(options => options.UseInMemoryDatabase("AppDBContext"));
+builder.Services.AddScoped<IProductService, ProductService>();
 
 
 

@@ -26,6 +26,7 @@
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AzureFunctionPractice.Application\AzureFunctionPractice.Application.csproj" />
     <ProjectReference Include="..\AzureFunctionPractice.Domain\AzureFunctionPractice.Domain.csproj" />
   </ItemGroup>
   <ItemGroup>

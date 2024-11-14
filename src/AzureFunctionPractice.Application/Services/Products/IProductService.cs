@@ -7,5 +7,5 @@ namespace AzureFunctionPractice.Application.Services.Products;
 
 public interface IProductService
 {
-    Task<List<ProductOutputDto>> GetProducts(ProductInputDto productInput);
+    Task<List<ProductOutputDto>> GetProductsAsync();
 }

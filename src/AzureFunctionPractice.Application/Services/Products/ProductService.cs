@@ -16,7 +16,7 @@ public class ProductService : IProductService
         _appDBContext = appDBContext;
     }
 
-    public async Task<List<ProductOutputDto>> GetProducts(ProductInputDto productInput)
+    public async Task<List<ProductOutputDto>> GetProductsAsync()
     {
         var res = await _appDBContext.Products.Select(a=> new ProductOutputDto
         {
