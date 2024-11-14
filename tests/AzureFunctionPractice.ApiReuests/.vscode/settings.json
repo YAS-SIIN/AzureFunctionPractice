@@ -1,0 +1,12 @@
+{
+    "rest-client.environmentVariables": {
+        "$shared": {
+            "hostname":"http://localhost:7126",
+            "authToken": ""
+        }
+    },
+    "rest-client.defaultHeaders": {
+        "Content-Type": "application/json",
+        "Accept-Language": "En"
+    }
+}

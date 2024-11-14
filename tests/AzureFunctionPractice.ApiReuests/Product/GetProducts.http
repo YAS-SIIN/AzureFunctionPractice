@@ -1,0 +1,3 @@
+# @name DeleteBank
+GET  {{hostname}}/api/Product
+Authorization: Bearer {{authToken}}

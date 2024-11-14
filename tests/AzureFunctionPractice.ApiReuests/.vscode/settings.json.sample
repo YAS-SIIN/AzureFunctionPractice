@@ -1,0 +1,14 @@
+{
+    "rest-client.environmentVariables": {
+        "$shared": {
+            "emptyFilter": "{'disablePaging':false,'pageNumber':1,'pageSize':60,'filterConditionModel':{'Operator':'AND','conditions':[]}}",
+            "hostname": "http://localhost:5000",
+            "authToken": ""
+        }
+    },
+    "rest-client.defaultHeaders": {
+        "Content-Type": "application/json",
+        "timezone": "Asia/Tehran",
+        "Accept-Language": "fa"
+    }
+}
