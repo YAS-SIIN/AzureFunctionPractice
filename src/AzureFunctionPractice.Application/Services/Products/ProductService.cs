@@ -41,6 +41,7 @@ public class ProductService : IProductService
             Price = productInputDto.Price,
         };
 
+        await _appDBContext.SaveChangesAsync(cancellationToken);
         return res;
     }
 

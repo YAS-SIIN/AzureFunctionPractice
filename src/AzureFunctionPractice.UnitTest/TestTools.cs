@@ -44,7 +44,7 @@ public class TestTools
                 });
             }
 
-            AppMemoryDbContext.Product.AddRange(customerList);
+            AppMemoryDbContext.Products.AddRange(customerList);
         }
          
         AppMemoryDbContext.SaveChanges();

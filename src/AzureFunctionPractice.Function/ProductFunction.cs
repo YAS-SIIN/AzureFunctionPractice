@@ -26,12 +26,12 @@ namespace AzureFunctionPractice
             _logger.LogInformation("C# HTTP trigger function processed a request.");
            
             string content = await new StreamReader(req.Body).ReadToEndAsync();
-            if (string.Equals(req.Method, "get", StringComparison.CurrentCultureIgnoreCase))
+            if (req.Method == HttpMethod.Get.ToString())
             {
                 var res = await _productService.GetProductsAsync(cancellationToken);
                 return new OkObjectResult(res);
             }
-            else if (string.Equals(req.Method, "post", StringComparison.CurrentCultureIgnoreCase))
+            else if (req.Method == HttpMethod.Post.ToString())
             {
                 var productInput = JsonSerializer.Deserialize<ProductInputDto>(content);
                 if (productInput is ProductInputDto)
