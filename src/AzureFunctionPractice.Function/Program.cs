@@ -4,8 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using AzureFunctionPractice.Domain.DBContext;
 using AzureFunctionPractice.Application.Services.Products;
-using Google.Protobuf.WellKnownTypes;
-using Mc2.CrudTest.Presentation.Server;
+using AzureFunctionPractice.Function;
 
 var builder = FunctionsApplication.CreateBuilder(args);
 

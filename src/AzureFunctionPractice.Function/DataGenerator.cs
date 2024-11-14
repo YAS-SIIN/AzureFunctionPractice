@@ -9,7 +9,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Text;
 
-namespace Mc2.CrudTest.Presentation.Server;
+namespace AzureFunctionPractice.Function;
 
 public class DataGenerator
 {
