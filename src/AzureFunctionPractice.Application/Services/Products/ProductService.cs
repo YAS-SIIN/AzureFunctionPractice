@@ -27,4 +27,22 @@ public class ProductService : IProductService
         }).ToListAsync(cancellationToken);
         return res;
     }
+    
+    public async Task<ProductOutputDto> AddProductsAsync(ProductInputDto productInputDto, CancellationToken cancellationToken = default)
+    {
+        var insertRow = new Product { Name = productInputDto.Name, Price = productInputDto.Price, Description = productInputDto.Description };
+        var insertedRow = await _appDBContext.Products.AddAsync(insertRow, cancellationToken);
+
+        var res = new ProductOutputDto
+        {
+            Description = productInputDto.Description,
+            Id = insertRow.Id,
+            Name = productInputDto.Name,
+            Price = productInputDto.Price,
+        };
+
+        return res;
+    }
+
+
 }

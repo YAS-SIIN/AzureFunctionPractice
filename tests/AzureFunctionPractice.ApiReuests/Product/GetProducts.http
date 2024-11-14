@@ -1,2 +1,0 @@
-# @name GetProducts
-GET  {{hostname}}/api/GetProducts
