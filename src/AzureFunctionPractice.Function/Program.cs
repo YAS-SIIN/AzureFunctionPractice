@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using AzureFunctionPractice.Domain.DBContext;
 using AzureFunctionPractice.Application.Services.Products;
 using AzureFunctionPractice.Function;
+using FluentValidation;
+using AzureFunctionPractice.Application;
 
 var builder = FunctionsApplication.CreateBuilder(args);
 
@@ -16,6 +18,7 @@ builder.ConfigureFunctionsWebApplication();
 //     .ConfigureFunctionsApplicationInsights();
 builder.Services.AddDbContext<AppDBContext>(options => options.UseInMemoryDatabase("AppDBContext"));
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddValidatorsFromAssembly(typeof(InjectApplication).Assembly);
 
 
 var app = builder.Build();
