@@ -1,3 +1,2 @@
-# @name DeleteBank
-GET  {{hostname}}/api/Product
-Authorization: Bearer {{authToken}}
+# @name GetProducts
+GET  {{hostname}}/api/GetProducts
