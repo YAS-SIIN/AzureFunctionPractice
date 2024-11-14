@@ -39,7 +39,6 @@ namespace AzureFunctionPractice
                     var res = await _productService.AddProductsAsync(productInput, cancellationToken);
                     return new OkObjectResult(res); 
                 }
-
             }
             return new OkObjectResult(null);
         }

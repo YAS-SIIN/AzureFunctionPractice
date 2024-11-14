@@ -20,8 +20,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\AzureFunctionPractice.Application\AzureFunctionPractice.Application.csproj" />
     <ProjectReference Include="..\..\src\AzureFunctionPractice.Domain\AzureFunctionPractice.Domain.csproj" />
-    <ProjectReference Include="..\AzureFunctionPractice.Application\AzureFunctionPractice.Application.csproj" />
-    <ProjectReference Include="..\AzureFunctionPractice.Domain\AzureFunctionPractice.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
