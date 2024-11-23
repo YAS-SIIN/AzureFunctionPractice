@@ -4,7 +4,7 @@ using AzureFunctionPractice.Application.Dtos.Product;
 
 namespace AzureFunctionPractice.UnitTest.Services;
 
-public class ProjectServiceTests_Data
+public class ProductServiceTests_Data
 {
     public static IEnumerable<object[]> SetDataFor_CreateProduct_WithEverythingIsOk()
     {
@@ -15,4 +15,17 @@ public class ProjectServiceTests_Data
         }
     };
     }
+   public static IEnumerable<object[]> SetDataFor_CreateProduct_WithNameIsEmpty_ShouldBeFailed()
+    {
+        yield return new object[] { new ProductInputDto() {
+            Name = "",
+            Description = "TestProduct",
+            Price = 15000
+        }
+    };
+    }
+
+
 }
+
+
